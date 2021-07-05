@@ -1,17 +1,17 @@
 function f(p,a,b) {
-    var lineLength = squaredDistance(a, b);
-    if (lineLength == 0)
-        return euclideanDistance(p, a);
-    var t = ((p.x - a.x) * (b.x - a.x) + (p.y - a.y) * (b.y - a.y)) / lineLength;
+    var l = s(a, b);
+    if (l == 0)
+        return e(p, a);
+    var t = ((p.x - a.x) * (b.x - a.x) + (p.y - a.y) * (b.y - a.y)) / l;
     t = Math.max(0, Math.min(1, t));
-    return euclideanDistance(p, { x: a.x + t * (b.x - a.x),
+    return e(p, { x: a.x + t * (b.x - a.x),
         y: a.y + t * (b.y - a.y) });
 }
 
-function euclideanDistance(p1, p2) {
-    return sqrt(squaredDistance(p1, p2))  ;
+function e(a, b) {
+    return sqrt(s(a, b))  ;
 }
 
-function squaredDistance(p1, p2) {
-    return pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2);
+function s(a, b) {
+    return pow(a.x - b.x, 2) + pow(a.y - b.y, 2);
 }
